@@ -1,8 +1,11 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function (BaseController, MessageBox, Utilities, History) {
+	"sap/ui/core/routing/History",
+	"sap/ui/model/Filter",
+	"sap/ui/model/FilterOperator",
+	"sap/ui/model/FilterType"
+], function (BaseController, MessageBox, Utilities, History, Filter, FilterOperator, FilterType) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.MasterPage1", {
@@ -212,5 +215,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		 naarEngles: function () {
 		 	sap.ui.getCore().getConfiguration().setLanguage( "de" );
 		 },
+
+		onFilterProjects : function (oEvent) {
+
+			var aFilter = [], sQuery = oEvent.getParameter("query"),
+				oList = this.getView().byId("projectsList"),
+				oBinding = oList.getBinding("items");
+
+			 if (sQuery) {
+			 	aFilter.push(new Filter("Titel", FilterOperator.Contains, sQuery));
+			 }
+			oBinding.filter(aFilter);
+		},
 	});
 }, /* bExport= */ true);
