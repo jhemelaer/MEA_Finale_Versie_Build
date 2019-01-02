@@ -1,0 +1,98 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.mRv4.controller.Dialog2" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Add lid" type="Standard" verticalScrolling="true">
+		<content>
+			<form:Form width="100%" editable="true" visible="true">
+				<form:title>
+					<core:Title text="Form Title" level="Auto"/>
+				</form:title>
+				<form:formContainers>
+					<form:FormContainer visible="true">
+						<form:formElements>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="voornaam" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="achternaam" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="geslacht" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<RadioButtonGroup
+										id="sap_m_Dialog_1-content-build_simple_form_Form-1544920360749-formContainers-build_simple_form_FormContainer-1544920388429-formElements-build_simple_form_FormElement-3-fields-sap_m_RadioButtonGroup-1"
+										columns="8" selectedIndex="0" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+										select="_onRadioButtonGroupSelect">
+										<buttons>
+											<RadioButton text="man" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+											<RadioButton text="vrouw" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
+										</buttons>
+									</RadioButtonGroup>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="email" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="datum in dienst treding" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit"
+										visible="true"/>
+								</form:label>
+								<form:fields>
+									<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="geboortedatum" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+								</form:fields>
+							</form:FormElement>
+							<form:FormElement visible="true">
+								<form:label>
+									<Label text="active" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:label>
+								<form:fields>
+									<Switch state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
+									<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+								</form:fields>
+							</form:FormElement>
+						</form:formElements>
+						<form:title/>
+					</form:FormContainer>
+				</form:formContainers>
+				<form:layout>
+					<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+				</form:layout>
+			</form:Form>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="Cancel" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress1"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,72 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" controllerName="com.sap.build.standard.mRv4.controller.Dialog1" xmlns="sap.m"
+	xmlns:form="sap.ui.layout.form">
+	<Dialog horizontalScrolling="true" showHeader="true" state="None" stretch="false" title="Kies leden" type="Standard"
+		verticalScrolling="true">
+		<content>
+			<Breadcrumbs currentLocationText="">
+				<links/>
+			</Breadcrumbs>
+			<IconTabBar expandable="false" expanded="true" applyContentPadding="false" backgroundDesign="Solid" upperCase="false" visible="true"
+				selectedKey="Ok">
+				<items>
+					<IconTabFilter icon="sap-icon://hint" iconColor="Positive" text="kies leden" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<MultiComboBox editable="true" enabled="true" width="auto" valueState="None" maxWidth="100%">
+								<items>
+									<core:Item text="Item" enabled="true" key="Item"/>
+									<core:Item text="Item" enabled="true" key="Item"/>
+									<core:Item text="Item" enabled="true" key="Item"/>
+								</items>
+							</MultiComboBox>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+					<IconTabFilter icon="sap-icon://switch-classes" iconColor="Neutral" text="kies functie" count="" design="Vertical" showAll="false"
+						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
+						<content>
+							<form:Form width="100%" editable="true" visible="true">
+								<form:title>
+									<core:Title text="functie" level="Auto"/>
+								</form:title>
+								<form:formContainers>
+									<form:FormContainer visible="true">
+										<form:formElements>
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input value="Employee" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+												</form:fields>
+											</form:FormElement>
+										</form:formElements>
+										<form:title/>
+									</form:FormContainer>
+								</form:formContainers>
+								<form:layout>
+									<form:ResponsiveGridLayout adjustLabelSpan="false" columnsL="2" labelSpanL="3" columnsM="1" labelSpanM="2" labelSpanS="12"/>
+								</form:layout>
+							</form:Form>
+						</content>
+					</IconTabFilter>
+					<IconTabSeparator icon="" iconDensityAware="false"/>
+				</items>
+				<content>
+					<Text text="Tab Bar Content goes here ..." width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit"
+						visible="true"/>
+				</content>
+			</IconTabBar>
+		</content>
+		<beginButton/>
+		<buttons>
+			<Button text="save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress"/>
+			<Button text="Cancel" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"
+				press="_onButtonPress1"/>
+		</buttons>
+		<customHeader/>
+		<endButton/>
+		<subHeader/>
+	</Dialog>
+</core:FragmentDefinition>
