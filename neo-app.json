@@ -19,6 +19,13 @@
 			"entryPath": "/test-resources"
 		},
 		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/destinations/Flexso",
+		"target": {
+			"type": "destination",
+			"name": "Flexso"
+		},
+		"description": "oData-service opdracht Flexso"
 	}],
 	"authenticationMethod": "none",
 	"sendWelcomeFileRedirect": true
