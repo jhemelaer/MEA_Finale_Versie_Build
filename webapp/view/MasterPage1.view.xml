@@ -6,14 +6,14 @@
 			<Button press="naarNederlands" text="Nederlands"></Button>
 			<Button press="naarEngles" text="Duits"></Button>
 		
-			<List mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"
+			<List id="projectsList" mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"
 				growingThreshold="20" growingScrollToLoad="true" visible="true"
 				items="{/ProjectenSet}">
 				<infoToolbar/>
 				<headerToolbar>
 					<Toolbar enabled="true" visible="true" width="" design="Solid">
 						<content>
-							<SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%"/>
+							<SearchField placeholder="Search" showSearchButton="true" visible="true" width="100%" search="onFilterProjects"/>
 						</content>
 					</Toolbar>
 				</headerToolbar>
