@@ -20,7 +20,7 @@
 									<Label text="id" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+									<Input id="projectNewformid" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -28,7 +28,7 @@
 									<Label text="titel" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+									<Input id="projectNewformtitel" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -36,7 +36,7 @@
 									<Label text="omschrijving" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<TextArea rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true"/>
+									<TextArea  id="projectNewformomschrijving" rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -44,7 +44,7 @@
 									<Label text="beginDatum" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+									<DatePicker id="projectNewformbeginDatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -52,7 +52,7 @@
 									<Label text="eindDatum" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+									<DatePicker id="projectNewformeindDatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -60,7 +60,7 @@
 									<Label text="Active" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<Switch state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
+									<Switch   id="projectNewformActive" state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -68,7 +68,7 @@
 									<Label text="manager" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+									<ComboBox  id="projectNewformedmanager" editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
 										<items>
 											<core:Item text="Item" enabled="true" key="Item"/>
 											<core:Item text="Item" enabled="true" key="Item"/>
@@ -90,8 +90,8 @@
 			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
 				<content>
 					<ToolbarSpacer width=""/>
-					<Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="newProjectSavePressed" id="newProjectSave" text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="newProjectCancelPressed" id="newProjectCancel" text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
 				</content>
 			</OverflowToolbar>
 		</footer>

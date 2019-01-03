@@ -111,8 +111,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			//	
 			//	1) nieuw model halen
 				var NewModel = this.getUnidetedValues();
-			//	console.log("dit is het verniewde moddel: " + NewModel);
-			//	console.log(NewModel);
+				console.log("dit is het verniewde moddel: " + NewModel);
+				console.log(NewModel);
 			//  2) niewe waarden opslaan db odata
 				// TO DO
 		
@@ -256,7 +256,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		onInit: function () {
 			
 			var OldModel = this.getUnidetedValues();
-			var OldModel = this.getView().getModel("OModelNewProjectModel");
+		//	var OldModel = this.getView().getModel("OModelNewLidModel");
 			console.log("dit is het oude moddel lid: " + OldModel);
 			console.log(OldModel);
 			

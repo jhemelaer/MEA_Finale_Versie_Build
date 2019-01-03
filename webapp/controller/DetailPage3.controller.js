@@ -1,11 +1,141 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function (BaseController, MessageBox, Utilities, History) {
+	"sap/ui/core/routing/History",
+	"sap/ui/model/json/JSONModel"
+], function (BaseController, MessageBox, Utilities, History,JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage3", {
+		
+		getUnidetedValues : function () {
+			
+		 	 var OModelNewTaak = {
+						
+								
+		 					}; 
+		 	 	 OModelNewTaak.taakformLabel  = this.getView().byId("taakformLabel").getValue();
+		 	 	 OModelNewTaak.taakformresponsible = this.getView().byId("taakformresponsible").getSelectedKey();
+				 OModelNewTaak.taakformdescr = this.getView().byId("taakformdescr").getValue();
+		 	 	 OModelNewTaak.taakformdeadline = this.getView().byId("taakformdeadline").getValue();
+		 	 	 OModelNewTaak.taakformstatus = this.getView().byId("taakformstatus").getSelectedButton().getText();
+		 	 	 OModelNewTaak.taakformscore = this.getView().byId("taakformscore").getValue();
+		 	 	 OModelNewTaak.taakformfeedback = this.getView().byId("taakformfeedback").getValue();
+				
+			
+		 	 	console.log(OModelNewTaak);
+				
+			 	var OModelNewTaakModel = new JSONModel(OModelNewTaak);
+		         this.getView().setModel(OModelNewTaakModel);
+		 	 	return OModelNewTaak;
+	
+		 },
+		
+		
+		setTaakEditable : function (){
+			
+			var taakformLabel = this.getView().byId("taakformLabel");
+			taakformLabel = taakformLabel.setEditable(true);
+			
+			var taakformresponsible = this.getView().byId("taakformresponsible");
+			taakformresponsible = taakformresponsible.setEnabled(true);
+			
+			var taakformdescr = this.getView().byId("taakformdescr");
+			taakformdescr =taakformdescr.setEditable(true);
+			
+			var taakformdeadline = this.getView().byId("taakformdeadline");
+			taakformdeadline = taakformdeadline.setEditable(true);
+			
+			var taakformstatus = this.getView().byId("taakformstatus");
+			taakformstatus = taakformstatus.setEnabled(true);
+			
+			var taakformscore = this.getView().byId("taakformscore");
+			taakformscore = taakformscore.setEditable(true);
+			
+			var taakformfeedback = this.getView().byId("taakformfeedback");
+			taakformfeedback = taakformfeedback.setEditable(true);
+		},
+		
+		setTaakUnEdetable : function () {
+			var taakformLabel = this.getView().byId("taakformLabel");
+			taakformLabel = taakformLabel.setEditable(false);
+			
+			var taakformresponsible = this.getView().byId("taakformresponsible");
+			taakformresponsible = taakformresponsible.setEnabled(false);
+			
+			var taakformdescr = this.getView().byId("taakformdescr");
+			taakformdescr =taakformdescr.setEditable(false);
+			
+			var taakformdeadline = this.getView().byId("taakformdeadline");
+			taakformdeadline = taakformdeadline.setEditable(false);
+			
+			var taakformstatus = this.getView().byId("taakformstatus");
+			taakformstatus = taakformstatus.setEnabled(false);
+			
+			var taakformscore = this.getView().byId("taakformscore");
+			taakformscore = taakformscore.setEditable(false);
+			
+			var taakformfeedback = this.getView().byId("taakformfeedback");
+			taakformfeedback = taakformfeedback.setEditable(false);
+		},
+	
+		detailTaakEditPressed : function () {
+			
+			this.setTaakEditable();
+		
+			var edit = this.getView().byId("detailTaakEdit")  ;
+			var save = this.getView().byId("detailTaakSave")  ;
+			var cancel = this.getView().byId("detailTaakCancel")  ;
+			
+			save.setVisible(true);
+			edit.setVisible(false);
+			cancel.setVisible(true);
+		},
+		detailTaakSavePressed : function () {
+			
+				this.setTaakUnEdetable();
+				
+			var edit = this.getView().byId("detailTaakEdit")  ;
+			var save = this.getView().byId("detailTaakSave")  ;
+			var cancel = this.getView().byId("detailTaakCancel")  ;
+			
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+			
+			//	1) nieuw model halen
+			// TO DO 
+			//	
+			//	1) nieuw model halen
+				var NewModel = this.getUnidetedValues();
+				console.log("dit is het verniewde moddel: " + NewModel);
+				console.log(NewModel);
+			//  2) niewe waarden opslaan db odata
+				// TO DO
+		
+	},
+		detailTaakCancelPressed : function () {
+			
+			 this.setLidUnEdetable();
+		
+			var edit = this.getView().byId("detailTaakEdit")  ;
+			var save = this.getView().byId("detailTaakSave")  ;
+			var cancel = this.getView().byId("detailTaakCancel")  ;
+			
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+			
+				// oude waarden terugzetten
+				
+	},
+	
+		detailTaakDeletePressed : function () {
+		
+		// TO DO
+		
+	},
+	
 		handleRouteMatched: function (oEvent) {
 			var sAppId = "App5c0fc78059fdbb598f2a39fd";
 
@@ -116,6 +246,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		onInit: function () {
+			
+			var OldModel = this.getUnidetedValues();
+		//	var OldModel = this.getView().getModel("OModelNewTaakModel");
+			console.log("dit is het oude moddel lid: " + OldModel);
+			console.log(OldModel);
+			
+			
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("DetailPage3").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 			var oView = this.getView();
