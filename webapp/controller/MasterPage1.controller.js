@@ -227,5 +227,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			 }
 			oBinding.filter(aFilter);
 		},
+		
+		onListItemPress: function(oEvent)
+		{
+			var data = {};
+			data.context = oEvent.getSource().getBindingContext();
+			console.log(data.context);
+		}
 	});
 }, /* bExport= */ true);

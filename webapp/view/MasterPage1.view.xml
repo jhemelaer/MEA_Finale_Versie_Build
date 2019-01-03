@@ -19,12 +19,11 @@
 				</headerToolbar>
 				<items>
 					<ObjectListItem
-					intro="{Idproject}"
 					title="{Titel}"
+        			type="Active"
+					press="onListItemPress"
 					numberState="None"
-					type="Active"
-					selected="false"
-					showMarkers="false" />
+					selected="false"/>
 				</items>
 			</List>
 		</content>
