@@ -14,7 +14,7 @@
 								<statuses/>
 								<markers/>
 							</ObjectHeader>
-							<form:Form width="100%" editable="true" visible="true">
+							<form:Form width="100%" editable="true" visible="true" id="FormDetailProject">
 								<form:title>
 									<core:Title text="" level="Auto"/>
 								</form:title>
@@ -26,7 +26,7 @@
 													<Label text="{i18n>idProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input id="projectformid"  type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false" />
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -34,7 +34,7 @@
 													<Label text="{i18n>titelProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input id="projectformtitel" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -42,7 +42,7 @@
 													<Label text="{i18n>omschrijvingProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<TextArea rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true"/>
+													<TextArea id="projectformomschrijving"  rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -50,7 +50,7 @@
 													<Label text="{i18n>beginDatumProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+													<DatePicker id="projectformbeginDatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -58,7 +58,7 @@
 													<Label text="{i18n>eindDatumProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+													<DatePicker id="projectformeindDatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -66,7 +66,7 @@
 													<Label text="{i18n>ActiveProjectDetail}" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Switch state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
+													<Switch id="projectformActive" state="false" customTextOff="Off" customTextOn="On" type="Default"  visible="true" enabled="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -74,7 +74,7 @@
 													<Label text="manager" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+													<ComboBox id="projectformManager" editable="true" visible="true" width="auto" valueState="None" maxWidth="100%" enabled="false">
 														<items>
 															<core:Item text="Item" enabled="true" key="Item"/>
 															<core:Item text="Item" enabled="true" key="Item"/>
@@ -94,9 +94,9 @@
 							<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
 								<content>
 									<ToolbarSpacer width=""/>
-									<Button text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-									<Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-									<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+									<Button press="detailProjectEditPressed" id="detailProjectEdit" text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+									<Button press="detailProjectSavePressed" id="detailProjectSave" text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+									<Button press="detailProjectCancelPressed" id="detailProjectCancel" text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
 								</content>
 							</OverflowToolbar>
 						</content>

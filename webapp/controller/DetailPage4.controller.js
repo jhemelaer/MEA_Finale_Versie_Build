@@ -6,6 +6,41 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage4", {
+		
+		
+		newProjectSavePressed : function (){
+			// project opslaan
+				var OModelNewProjectCreate = {
+						
+								
+		 					}; 
+		 		 OModelNewProjectCreate.projectNewformid  = this.getView().byId("projectNewformid").getValue();
+		 		 OModelNewProjectCreate.projectNewformtitel = this.getView().byId("projectNewformtitel").getValue();
+					 OModelNewProjectCreate.projectNewformomschrijving = this.getView().byId("projectNewformomschrijving").getValue();
+		 		 OModelNewProjectCreate.projectNewformbeginDatum = this.getView().byId("projectNewformbeginDatum").getValue();
+		 		 OModelNewProjectCreate.projectNewformeindDatum = this.getView().byId("projectNewformeindDatum").getValue();
+		 		 OModelNewProjectCreate.projectNewformActive = this.getView().byId("projectNewformActive").getState();
+		 		 OModelNewProjectCreate.projectNewformedmanager = this.getView().byId("projectNewformedmanager").getSelectedKey();
+				
+				
+				
+		 		console.log(OModelNewProjectCreate);
+			
+			
+			var toRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			toRouter.navTo("DetailPage1");
+		},
+		
+		newProjectCancelPressed : function () {
+			
+			var toRouter = sap.ui.core.UIComponent.getRouterFor(this);
+			toRouter.navTo("DetailPage1");
+			
+		},
+		
+		
+		
+		
 		handleRouteMatched: function (oEvent) {
 			var sAppId = "App5c0fc78059fdbb598f2a39fd";
 

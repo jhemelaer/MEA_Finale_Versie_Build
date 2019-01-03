@@ -5,7 +5,7 @@
 			<form:Form width="100%" editable="true" visible="true">
 				<form:title>
 					<core:Title text="info Taak" level="Auto"/>
-				</form:title>
+				</form:title> 
 				<form:formContainers>
 					<form:FormContainer visible="true">
 						<form:formElements>
@@ -14,7 +14,7 @@
 									<Label text="Label" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+									<Input id="taakformLabel" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -22,7 +22,7 @@
 									<Label text="responsible" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<ComboBox editable="true" enabled="true" visible="true" width="auto" valueState="None" maxWidth="100%">
+									<ComboBox id="taakformresponsible" editable="true" enabled="false" visible="true" width="auto" valueState="None" maxWidth="100%">
 										<items>
 											<core:Item text="Item" enabled="true" key="Item"/>
 											<core:Item text="Item" enabled="true" key="Item"/>
@@ -36,7 +36,7 @@
 									<Label text="desc" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<TextArea rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true"/>
+									<TextArea id="taakformdescr" rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true" editable="false"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -44,7 +44,7 @@
 									<Label text="deadline" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<DatePicker width="auto" displayFormat="short" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+									<DatePicker id="taakformdeadline" width="auto" displayFormat="short" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 								</form:fields>
 							</form:FormElement>
 						</form:formElements>
@@ -67,9 +67,9 @@
 									<Label text="status" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<RadioButtonGroup
-										id="sap_Responsive_Page_0-content-build_simple_form_Form-1544917525143-formContainers-build_simple_form_FormContainer-1-formElements-build_simple_form_FormElement-1-fields-sap_m_RadioButtonGroup-1544917697714"
-										columns="8" selectedIndex="0" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+									<RadioButtonGroup 
+									 id="taakformstatus"
+										columns="8" selectedIndex="0" valueState="None" width="auto" editable="true" enabled="false" textDirection="Inherit"
 										select="_onRadioButtonGroupSelect">
 										<buttons>
 											<RadioButton text="open" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
@@ -86,7 +86,7 @@
 									<Label text="score" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<RatingIndicator value="0" maxValue="5" visualMode="Half" enabled="true" visible="true" editable="true"/>
+									<RatingIndicator id="taakformscore" value="0" maxValue="5" visualMode="Half" enabled="true" visible="true" editable="false"/>
 								</form:fields>
 							</form:FormElement>
 							<form:FormElement visible="true">
@@ -94,7 +94,7 @@
 									<Label text="feedback" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 								</form:label>
 								<form:fields>
-									<TextArea rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true"/>
+									<TextArea id="taakformfeedback"  rows="2" cols="20" maxLength="0" wrapping="None" enabled="true" visible="true" editable="false"/>
 								</form:fields>
 							</form:FormElement>
 						</form:formElements>
@@ -110,10 +110,10 @@
 			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
 				<content>
 					<ToolbarSpacer width=""/>
-					<Button text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="delete" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="Save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="detailTaakEditPressed" id="detailTaakEdit" text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button  press="detailTaakDeletePressed" id="detailTaakDelete" text="delete" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button  press="detailTaakSavePressed" id="detailTaakSave"   text="Save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+					<Button press="detailTaakCancelPressed" id="detailTaakCancel" text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
 				</content>
 			</OverflowToolbar>
 		</footer>

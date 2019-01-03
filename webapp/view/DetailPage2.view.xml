@@ -26,7 +26,7 @@
 													<Label text="voornaam" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input id="lidformvoornaam" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -34,7 +34,7 @@
 													<Label text="achternaam" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input id="lidformachternaam" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -42,9 +42,9 @@
 													<Label text="geslacht" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<RadioButtonGroup
-														id="sap_Responsive_Page_0-content-build_simple_form_Form-1544914141797-formContainers-build_simple_form_FormContainer-1-formElements-build_simple_form_FormElement-3-fields-sap_m_RadioButtonGroup-1544914212360"
-														columns="8" selectedIndex="0" valueState="None" width="auto" editable="true" enabled="true" textDirection="Inherit"
+													<RadioButtonGroup 
+														id="lidformgeslacht"
+														columns="8" selectedIndex="0" valueState="None" width="auto" editable="false" enabled="true" textDirection="Inherit"
 														select="_onRadioButtonGroupSelect">
 														<buttons>
 															<RadioButton text="man" editable="true" enabled="true" visible="true" width="auto" valueState="None" selected="false"/>
@@ -58,7 +58,7 @@
 													<Label text="email" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Input type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0"/>
+													<Input id="lidformemail" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -67,7 +67,7 @@
 														visible="true"/>
 												</form:label>
 												<form:fields>
-													<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+													<DatePicker  id="lidformdienstStreding" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -75,7 +75,7 @@
 													<Label text="geboortedatum" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<DatePicker width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd"/>
+													<DatePicker  id="lidformgeboortedatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 												</form:fields>
 											</form:FormElement>
 											<form:FormElement visible="true">
@@ -83,7 +83,7 @@
 													<Label text="active" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<Switch state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="true" visible="true"/>
+													<Switch  id="lidformactive" state="false" customTextOff="Off" customTextOn="On" type="Default" enabled="false" visible="true"/>
 													<Text text="" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:fields>
 											</form:FormElement>
@@ -156,10 +156,10 @@
 			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
 				<content>
 					<ToolbarSpacer width=""/>
-					<Button text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="delete" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="Save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
-					<Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="detaiLidEditPressed" id="detailLidEdit" text="edit" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="detaiLidDeletePressed" id="detaiLidDelete" text="delete" type="Reject" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false"/>
+					<Button press="detaiLidSavePressed" id="detaiLidSave" text="Save" type="Accept" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
+					<Button press="detaiLidCancelPressed" id="detaiLidCancel" text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="false" iconDensityAware="false"/>
 				</content>
 			</OverflowToolbar>
 		</footer>
