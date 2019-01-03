@@ -1,11 +1,149 @@
 sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function (BaseController, MessageBox, Utilities, History) {
+	"sap/ui/core/routing/History",
+	"sap/ui/model/json/JSONModel"
+], function (BaseController, MessageBox, Utilities, History,JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage2", {
+		
+		
+		 getUnidetedValues : function () {
+			
+		 	var OModelNewLid = {
+						
+								
+		 					}; 
+		 		 OModelNewLid.lidformvoornaam  = this.getView().byId("lidformvoornaam").getValue();
+		 		 OModelNewLid.lidformachternaam = this.getView().byId("lidformachternaam").getValue();
+					 OModelNewLid.lidformgeslacht = this.getView().byId("lidformgeslacht").getSelectedButton().getText();
+		 		 OModelNewLid.lidformemail = this.getView().byId("lidformemail").getValue();
+		 		 OModelNewLid.lidformdienstStreding = this.getView().byId("lidformdienstStreding").getValue();
+		 		 OModelNewLid.lidformgeboortedatum = this.getView().byId("lidformgeboortedatum").getValue();
+		 		 OModelNewLid.lidformactive = this.getView().byId("lidformactive").getState();
+				
+				
+				
+		 		console.log(OModelNewLid);
+				
+		 		var OModelNewLidModel = new JSONModel(OModelNewLid);
+		         this.getView().setModel(OModelNewLidModel);
+		 		return OModelNewLid;
+	
+		 },
+		
+		
+		setLidEditable : function (){
+			
+			var lidformvoornaam = this.getView().byId("lidformvoornaam");
+			lidformvoornaam = lidformvoornaam.setEditable(true);
+			
+			var lidformachternaam = this.getView().byId("lidformachternaam");
+			lidformachternaam = lidformachternaam.setEditable(true);
+			
+			var lidformgeslacht = this.getView().byId("lidformgeslacht");
+			lidformgeslacht =lidformgeslacht.setEditable(true);
+			
+			var lidformemail = this.getView().byId("lidformemail");
+			lidformemail = lidformemail.setEditable(true);
+			
+			var lidformdienstStreding = this.getView().byId("lidformdienstStreding");
+			lidformdienstStreding = lidformdienstStreding.setEditable(true);
+			
+			var lidformgeboortedatum = this.getView().byId("lidformgeboortedatum");
+			lidformgeboortedatum = lidformgeboortedatum.setEditable(true);
+			
+			var lidformactive = this.getView().byId("lidformactive");
+			lidformactive = lidformactive.setEnabled(true);
+		},
+		
+		setLidUnEdetable : function () {
+				var lidformvoornaam = this.getView().byId("lidformvoornaam");
+			lidformvoornaam = lidformvoornaam.setEditable(false);
+			
+			var lidformachternaam = this.getView().byId("lidformachternaam");
+			lidformachternaam = lidformachternaam.setEditable(false);
+			
+			var lidformgeslacht = this.getView().byId("lidformgeslacht");
+			lidformgeslacht =lidformgeslacht.setEditable(false);
+			
+			var lidformemail = this.getView().byId("lidformemail");
+			lidformemail = lidformemail.setEditable(false);
+			
+			var lidformdienstStreding = this.getView().byId("lidformdienstStreding");
+			lidformdienstStreding = lidformdienstStreding.setEditable(false);
+			
+			var lidformgeboortedatum = this.getView().byId("lidformgeboortedatum");
+			lidformgeboortedatum = lidformgeboortedatum.setEditable(false);
+			
+			var lidformactive = this.getView().byId("lidformactive");
+			lidformactive = lidformactive.setEnabled(false);
+			
+		},
+	
+		detaiLidEditPressed : function () {
+			
+			this.setLidEditable();
+		
+			var edit = this.getView().byId("detailLidEdit")  ;
+			var save = this.getView().byId("detaiLidSave")  ;
+			var cancel = this.getView().byId("detaiLidCancel")  ;
+			
+			save.setVisible(true);
+			edit.setVisible(false);
+			cancel.setVisible(true);
+		},
+		detaiLidSavePressed : function () {
+			
+				this.setLidUnEdetable();
+				
+			var edit = this.getView().byId("detailLidEdit")  ;
+			var save = this.getView().byId("detaiLidSave")  ;
+			var cancel = this.getView().byId("detaiLidCancel")  ;
+			
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+			
+			//	1) nieuw model halen
+			// TO DO 
+			//	
+			//	1) nieuw model halen
+				var NewModel = this.getUnidetedValues();
+			//	console.log("dit is het verniewde moddel: " + NewModel);
+			//	console.log(NewModel);
+			//  2) niewe waarden opslaan db odata
+				// TO DO
+		
+	},
+		detaiLidCancelPressed : function () {
+			
+			this.setLidUnEdetable();
+		
+			var edit = this.getView().byId("detailLidEdit")  ;
+			var save = this.getView().byId("detaiLidSave")  ;
+			var cancel = this.getView().byId("detaiLidCancel")  ;
+			
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+			
+				// oude waarden terugzetten
+				
+	},
+	
+		detaiLidDeletePressed : function () {
+		
+		// TO DO
+		
+	},
+	
+	
+	
+	
+	
+	
 		handleRouteMatched: function (oEvent) {
 			var sAppId = "App5c0fc78059fdbb598f2a39fd";
 
@@ -116,6 +254,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		onInit: function () {
+			
+			var OldModel = this.getUnidetedValues();
+			var OldModel = this.getView().getModel("OModelNewProjectModel");
+			console.log("dit is het oude moddel lid: " + OldModel);
+			console.log(OldModel);
+			
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("DetailPage2").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 			var oView = this.getView();

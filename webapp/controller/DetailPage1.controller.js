@@ -2,11 +2,153 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./Dialog2", "./Dialog3", "./Dialog1",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History) {
+	"sap/ui/core/routing/History",
+   "sap/ui/model/json/JSONModel"
+], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History,JSONModel) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage1", {
+		
+		// formFieldsProject id's
+			// projectformid
+			// projectformtitel
+			// projectformomschrijving
+			// projectformbeginDatum
+			// projectformeindDatum
+			// projectformActive
+			// projectformManager
+		
+		getUnidetedValues : function () {
+						var OModelNewProject = {
+					
+							
+						}; 
+			OModelNewProject.projectformid = 	this.getView().byId("projectformid").getValue();
+			OModelNewProject.projectformtitel =	this.getView().byId("projectformtitel").getValue();
+			OModelNewProject.projectformomschrijving =	this.getView().byId("projectformomschrijving").getValue();
+			OModelNewProject.projectformbeginDatum =	this.getView().byId("projectformbeginDatum").getValue();
+			OModelNewProject.projectformeindDatum =	this.getView().byId("projectformeindDatum").getValue();
+				// ook met Get
+			OModelNewProject.projectformActive =	this.getView().byId("projectformActive").getState();
+			OModelNewProject.projectformManager =	this.getView().byId("projectformManager").getSelectedKey();
+			
+			
+			console.log(OModelNewProject);
+			
+			var OModelNewProjectModel = new JSONModel(OModelNewProject);
+	        this.getView().setModel(OModelNewProjectModel);
+			return OModelNewProject;
+			},
+			
+			
+			setProjectEditable : function (){
+							//	formFieldsProject id's
+				var projectformid = this.getView().byId("projectformid");
+				var projectformtitel = this.getView().byId("projectformtitel");
+				var projectformomschrijving = this.getView().byId("projectformomschrijving");
+				var projectformbeginDatum = this.getView().byId("projectformbeginDatum");
+				var projectformeindDatum = this.getView().byId("projectformeindDatum");
+				var projectformActive = this.getView().byId("projectformActive");
+				var projectformManager = this.getView().byId("projectformManager");
+				
+			
+				// functie die waarde gaat ophalen en in een model opzet
+				
+				
+				projectformid.setEditable(true);
+				projectformtitel.setEditable(true);
+				projectformomschrijving.setEditable(true);
+				projectformbeginDatum.setEditable(true);
+				projectformeindDatum.setEditable(true);
+				
+				projectformActive.setEnabled(true);
+				projectformManager.setEnabled(true);
+			},
+			
+			
+			setProjectUnEdetable : function () {
+				
+				var projectformid = this.getView().byId("projectformid");
+				var projectformtitel = this.getView().byId("projectformtitel");
+				var projectformomschrijving = this.getView().byId("projectformomschrijving");
+				var projectformbeginDatum = this.getView().byId("projectformbeginDatum");
+				var projectformeindDatum = this.getView().byId("projectformeindDatum");
+				var projectformActive = this.getView().byId("projectformActive");
+				var projectformManager = this.getView().byId("projectformManager");
+				
+			
+				// functie die waarde gaat ophalen en in een model opzet
+				
+				
+				projectformid.setEditable(false);
+				projectformtitel.setEditable(false);
+				projectformomschrijving.setEditable(false);
+				projectformbeginDatum.setEditable(false);
+				projectformeindDatum.setEditable(false);
+				
+				projectformActive.setEnabled(false);
+				projectformManager.setEnabled(false);
+				
+			},
+		
+		detailProjectEditPressed : function () {
+			
+			this.setProjectEditable();
+
+			
+		//	console.log(projectformid);
+		
+			var edit = this.getView().byId("detailProjectEdit")  ;
+			var cancel = this.getView().byId("detailProjectCancel")  ;
+			var save = this.getView().byId("detailProjectSave")  ;
+			
+			save.setVisible(true);
+			edit.setVisible(false);
+			cancel.setVisible(true);
+		},
+		
+		detailProjectSavePressed : function () {
+			
+			
+			this.setProjectUnEdetable();
+			
+			
+			var edit = this.getView().byId("detailProjectEdit")  ;
+			var cancel = this.getView().byId("detailProjectCancel")  ;
+			var save = this.getView().byId("detailProjectSave")  ;
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+			
+			// TO DO 
+			//	
+			//	1) nieuw model halen
+				var NewModel = this.getUnidetedValues();
+				console.log("dit is het verniewde moddel: " + NewModel);
+				console.log(NewModel);
+			//  2) niewe waarden opslaan db odata
+				// TO DO
+				
+		},
+		
+		detailProjectCancelPressed : function () {
+			
+			this.setProjectUnEdetable();
+			
+			var edit = this.getView().byId("detailProjectEdit")  ;
+			var cancel = this.getView().byId("detailProjectCancel")  ;
+			var save = this.getView().byId("detailProjectSave")  ;
+			save.setVisible(false);
+			edit.setVisible(true);
+			cancel.setVisible(false);
+		
+			// oude waarden terugzetten
+		
+		},
+		
+		
+		
+		
 		handleRouteMatched: function (oEvent) {
 			var sAppId = "App5c0fc78059fdbb598f2a39fd";
 
@@ -242,6 +384,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		onInit: function () {
+			
+			var OldModel = this.getUnidetedValues();
+		//	var OldModel = this.getView().getModel("OModelNewProjectModel");
+			console.log("dit is het oude moddel: " + OldModel);
+			console.log(OldModel);
+			
+			
 			this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 			this.oRouter.getTarget("DetailPage1").attachDisplay(jQuery.proxy(this.handleRouteMatched, this));
 			var oView = this.getView();
