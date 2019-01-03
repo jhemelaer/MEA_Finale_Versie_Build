@@ -116,7 +116,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	},
 		detailTaakCancelPressed : function () {
 			
-			 this.setLidUnEdetable();
+			 this.setTaakUnEdetable();
 		
 			var edit = this.getView().byId("detailTaakEdit")  ;
 			var save = this.getView().byId("detailTaakSave")  ;
