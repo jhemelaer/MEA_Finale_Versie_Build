@@ -6,9 +6,9 @@
 			<Button press="naarNederlands" text="Nederlands"></Button>
 			<Button press="naarEngles" text="Duits"></Button>
 		
-			<List id="projectsList" mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"
-				growingThreshold="20" growingScrollToLoad="true" visible="true"
-				items="{/ProjectenSet}" itemPress="onListItemPress">
+			<!--<List id="projectsList" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"-->
+			<!--	growingThreshold="20" growingScrollToLoad="true" visible="true"-->
+			<!--	items="{/ProjectenSet}" selectionChange="onSelectionChange">-->
 				<!--<infoToolbar/>-->
 				<!--<headerToolbar>-->
 				<!--	<Toolbar enabled="true" visible="true" width="" design="Solid">-->
@@ -18,11 +18,25 @@
 				<!--	</Toolbar>-->
 				<!--</headerToolbar>-->
 				<!--<items>-->
-					<StandardListItem
-					title="{Titel}"
-        			type="Active"/>
+			<!--		<StandardListItem-->
+			<!--		title="{Titel}"-->
+   <!--     			type="Active"/>-->
 				<!--</items>-->
-			</List>
+			<!--</List>-->
+			
+			<List
+		    mode="SingleSelectMaster"
+	       	headerText="Awesome List"
+		    items="{/ProjectenSet}"
+            selectionChange="onSelectionChange">
+		    <items>
+			  <StandardListItem title="{Titel}" />
+		    </items>
+	      </List>
+			
+			
+			
+			
 		</content>
 		<footer>
 			<OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
