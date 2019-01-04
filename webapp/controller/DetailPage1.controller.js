@@ -9,6 +9,44 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage1", {
 		
+		
+		
+		
+		setValues : function (aaaaaaa) {
+			
+				var formId = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformid");
+				var formTitel = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformtitel");
+				var formOmschrijving = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformomschrijving");
+				var formbeginDatum = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformbeginDatum");
+				var formeindDatum = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformeindDatum");
+				var formActive = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformActive");
+				var formManager = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformManager");
+				
+				
+				
+                formId.setValue(aaaaaaa.Idproject);
+                formTitel.setValue(aaaaaaa.Titel);
+                formOmschrijving.setValue(aaaaaaa.Omschrijving);
+                formbeginDatum.setValue(aaaaaaa.Begindatum);
+                formeindDatum.setValue(aaaaaaa.Einddatum);
+                
+                if(aaaaaaa.Active == 1) {
+                	formActive.setState(true);
+                }
+                
+                if(aaaaaaa.Active != 1) {
+                	formActive.setState(false);
+                }
+                
+         //        formActive.setValue(aaaaaaa.Active);
+         //       formManager.setValue(aaaaaaa.Idmanager);
+         
+         
+        console.log(aaaaaaa.Active);
+        console.log(aaaaaaa.Idmanager);
+		
+		},
+		
 		// formFieldsProject id's
 			// projectformid
 			// projectformtitel
@@ -54,7 +92,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			
 				// functie die waarde gaat ophalen en in een model opzet
 				
-				
+			
 				projectformid.setEditable(true);
 				projectformtitel.setEditable(true);
 				projectformomschrijving.setEditable(true);

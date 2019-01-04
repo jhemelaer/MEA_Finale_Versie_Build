@@ -230,8 +230,29 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		},
 		
 			onSelectionChange: function(event) {
-                alert(event.getSource().getSelectedItem().getBindingContext().getObject().Titel);
+				
+				
+				
+				// opvullen data: 
+					
+				
+				console.log(event.getSource().getSelectedItem().getBindingContext().getObject());
+				
+               // alert(event.getSource().getSelectedItem().getBindingContext().getObject().Titel);
                 console.log(JSON.stringify(event.getSource().getSelectedItem().getBindingContext().getObject()));
+                
+                
+                var formId = sap.ui.getCore().byId("application-BUILD-prototype-component---DetailPage1--projectformid");
+                console.log(formId);
+              //  formId.setEditable(true);
+                formId.setValue("hello");
+                
+            //    sap.ui.getCore().byId("projectformtitel").getValue("hello");
+            //    sap.ui.getCore().byId("projectformtitel").setValue("hello");
+                
+            //     sap.ui.getCore().byId("projectformtitel").setValue("hello");
+			     sap.ui.controller("com.sap.build.standard.mRv4.controller.DetailPage1").setValues(event.getSource().getSelectedItem().getBindingContext().getObject());    
+             
               },
 		
 		onListItemPress: function(oEvent)
