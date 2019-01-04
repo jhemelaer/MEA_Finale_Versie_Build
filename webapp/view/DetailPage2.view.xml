@@ -78,6 +78,22 @@
 													<DatePicker  id="lidformgeboortedatum" width="auto" displayFormat="medium" enabled="true" visible="true" valueFormat="yyyyMMdd" editable="false"/>
 												</form:fields>
 											</form:FormElement>
+											
+											
+											
+											
+											
+											<form:FormElement visible="true">
+												<form:label>
+													<Label text="jobTitel" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+												</form:label>
+												<form:fields>
+													<Input id="lidformjobTitel" type="Text" showValueHelp="false" enabled="true" visible="true" width="auto" valueHelpOnly="false" maxLength="0" editable="false"/>
+												</form:fields>
+											</form:FormElement>
+											
+											
+											
 											<form:FormElement visible="true">
 												<form:label>
 													<Label text="active" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>

@@ -20,7 +20,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		 		 OModelNewProjectCreate.projectNewformbeginDatum = this.getView().byId("projectNewformbeginDatum").getValue();
 		 		 OModelNewProjectCreate.projectNewformeindDatum = this.getView().byId("projectNewformeindDatum").getValue();
 		 		 OModelNewProjectCreate.projectNewformActive = this.getView().byId("projectNewformActive").getState();
-		 		 OModelNewProjectCreate.projectNewformedmanager = this.getView().byId("projectNewformedmanager").getSelectedKey();
+	//	 		 OModelNewProjectCreate.projectNewformedmanager = this.getView().byId("projectNewformedmanager").getSelectedKey();
 				
 				
 				

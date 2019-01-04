@@ -21,6 +21,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		 		 OModelNewLid.lidformemail = this.getView().byId("lidformemail").getValue();
 		 		 OModelNewLid.lidformdienstStreding = this.getView().byId("lidformdienstStreding").getValue();
 		 		 OModelNewLid.lidformgeboortedatum = this.getView().byId("lidformgeboortedatum").getValue();
+		 		 	 OModelNewLid.lidformjobTitel = this.getView().byId("lidformjobTitel").getValue();
 		 		 OModelNewLid.lidformactive = this.getView().byId("lidformactive").getState();
 				
 				
@@ -56,6 +57,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			
 			var lidformactive = this.getView().byId("lidformactive");
 			lidformactive = lidformactive.setEnabled(true);
+			
+			var lidformjobTitel = this.getView().byId("lidformjobTitel");
+			lidformjobTitel = lidformjobTitel.setEditable(true);
+
 		},
 		
 		setLidUnEdetable : function () {
@@ -80,6 +85,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			var lidformactive = this.getView().byId("lidformactive");
 			lidformactive = lidformactive.setEnabled(false);
 			
+			var lidformjobTitel = this.getView().byId("lidformjobTitel");
+			lidformjobTitel = lidformjobTitel.setEditable(false);
 		},
 	
 		detaiLidEditPressed : function () {
