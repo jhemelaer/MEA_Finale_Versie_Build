@@ -32,7 +32,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						}
 					};
 					
-
+					
+					
 					this.sMasterContext = patternConvert(this.getOwnerComponent().getComponentData().startupParameters);
 
 				}
@@ -228,12 +229,21 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 			oBinding.filter(aFilter);
 		},
 		
+			onSelectionChange: function(event) {
+                alert(event.getSource().getSelectedItem().getBindingContext().getObject().Titel);
+                console.log(JSON.stringify(event.getSource().getSelectedItem().getBindingContext().getObject()));
+              },
+		
 		onListItemPress: function(oEvent)
 		{
+			console.log(oEvent);
+			 alert(event.getSource().getSelectedItem().getBindingContext().getObject().Titel);
+    		console.log(JSON.stringify(event.getSource().getSelectedItem().getBindingContext().getObject()));
+			
 			//var oItem = oEvent.getSource();
 			//var oContext = oItem.getBindingContext();
 			//var sTitel = oContext.getProperty("Titel");
-			alert('Hallo!')
+		//	alert('Hallo!')
 		}
 	});
 }, /* bExport= */ true);
