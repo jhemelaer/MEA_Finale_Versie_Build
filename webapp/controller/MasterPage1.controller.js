@@ -230,9 +230,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		
 		onListItemPress: function(oEvent)
 		{
-			var data = {};
-			data.context = oEvent.getSource().getBindingContext();
-			console.log(data.context);
+			//var oItem = oEvent.getSource();
+			//var oContext = oItem.getBindingContext();
+			//var sTitel = oContext.getProperty("Titel");
+			alert('Hallo!')
 		}
 	});
 }, /* bExport= */ true);
