@@ -14,7 +14,7 @@
 		"resources": "resources.json",
 		"dataSources": {
 			"Flexso": {
-				"uri": "/destinations/Flexso/sap/opu/odata/SAP/YXM_MVJ_ODATA_FLEXSO_SRV/",
+				"uri": "/destinations/Flexso/sap/opu/odata/SAP/Z_MVJ_ODATA_FLEXSO_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"

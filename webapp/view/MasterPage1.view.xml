@@ -6,7 +6,7 @@
 			
 			
 			<List mode="SingleSelectMaster" width="100%" headerText="Projecten" footerText="" backgroundDesign="Solid" showSeparators="All"
-				growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" items="{/ProjectenSet}" selectionChange="onSelectionChange">
+				growing="true" growingThreshold="20" growingScrollToLoad="true" visible="true" items="{/PROJECTSet}" selectionChange="onSelectionChange">
 				<infoToolbar/>
 				<headerToolbar>
 					<Toolbar enabled="true" visible="true" width="" design="Solid">
