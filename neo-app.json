@@ -26,7 +26,19 @@
 			"name": "Flexso"
 		},
 		"description": "oData-service opdracht Flexso"
-	}],
+	},
+	{
+		"path": "/destinations/Flexso_leden",
+		"target": {
+		"type": "destination",
+		"name": "Flexso_leden"
+		},
+		"description": "ES5 Demo Service"
+	}
+	
+	
+	
+	],
 	"authenticationMethod": "none",
 	"sendWelcomeFileRedirect": true
 }

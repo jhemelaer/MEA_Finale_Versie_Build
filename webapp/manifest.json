@@ -19,6 +19,14 @@
 				"settings": {
 					"odataVersion": "2.0"
 				}
+			},
+			
+			"Flexso_leden": {
+				"uri": "/destinations/Flexso_leden/sap/opu/odata/SAP/YXM_135_PERSONEN_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
 			}
 		},
 		"sourceTemplate": {
@@ -73,9 +81,20 @@
 				"type": "sap.ui.model.resource.ResourceModel",
 				"uri": "i18n/i18n.properties"
 			},
+			
 		"" : {
 			"dataSource": "Flexso"
+		},
+		
+		"NewModel" : {
+			"type": "sap.ui.model.odata.v2.ODataModel",
+			"settings": {
+				
+				},
+			"dataSource": "Flexso_leden",
+			"preload": true
 		}
+		
 		},
 		"routing": {
 			"config": {
