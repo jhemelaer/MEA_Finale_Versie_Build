@@ -12,13 +12,17 @@
 					<IconTabFilter icon="sap-icon://hint" iconColor="Positive" text="kies leden" count="" design="Vertical" showAll="false"
 						textDirection="Inherit" enabled="true" visible="true" iconDensityAware="false">
 						<content>
-							<MultiComboBox editable="true" enabled="true" width="auto" valueState="None" maxWidth="100%">
+							
+							
+							<MultiComboBox id="listAlleLeden" editable="true" enabled="true" width="auto" valueState="None" maxWidth="100%">
 								<items>
 									<core:Item text="Item" enabled="true" key="Item"/>
 									<core:Item text="Item" enabled="true" key="Item"/>
 									<core:Item text="Item" enabled="true" key="Item"/>
 								</items>
 							</MultiComboBox>
+							
+							
 						</content>
 					</IconTabFilter>
 					<IconTabSeparator icon="" iconDensityAware="false"/>

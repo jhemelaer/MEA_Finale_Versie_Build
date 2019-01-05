@@ -2,14 +2,22 @@ sap.ui.define([
 	"sap/ui/base/ManagedObject",
 	"sap/m/MessageBox",
 	"./utilities",
-	"sap/ui/core/routing/History"
-], function (ManagedObject, MessageBox, Utilities, History) {
+	"sap/ui/core/routing/History",
+	"sap/ui/model/json/JSONModel"
+], function (ManagedObject, MessageBox, Utilities, History, JSONModel) {
 
 	return ManagedObject.extend("com.sap.build.standard.mRv4.controller.Dialog1", {
 		constructor: function (oView) {
+			
 			this._oView = oView;
 			this._oControl = sap.ui.xmlfragment(oView.getId(), "com.sap.build.standard.mRv4.view.Dialog1", this);
 			this._bInit = false;
+			
+		
+			// nieuw lid toevoegen
+			var oSelect = this.getView().byId("application-BUILD-prototype-component---DetailPage1--listAlleLeden");
+			var newItem = new sap.ui.core.Item({ key: "all", text: "ALL"});
+			oSelect.addItem(newItem);
 		},
 
 		exit: function () {
