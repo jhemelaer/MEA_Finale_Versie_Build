@@ -114,8 +114,10 @@
 								<statuses/>
 								<markers/>
 							</ObjectHeader>
+							
+							
 							<List mode="SingleSelectMaster" width="100%" headerText="Header" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true"
-								growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onStandardListItemPress">
+								growingThreshold="20" growingScrollToLoad="true" visible="true" itemPress="_onStandardListItemPress" items="{StandardModel>/ProjectLIDSet}">
 								<infoToolbar>
 									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 										<content>
@@ -131,14 +133,18 @@
 									</Toolbar>
 								</headerToolbar>
 								<items>
-									<StandardListItem icon="sap-icon://employee-lookup" title="lid" description="" info="" infoState="None" type="Navigation" selected="false"
+									<StandardListItem icon="sap-icon://employee-lookup" title="{StandardModel>Voornaam}" description="" info="" infoState="None" type="Navigation" selected="false"
 										visible="true"/>
-									<StandardListItem icon="sap-icon://employee-lookup" title="lid" description="" info="" infoState="Success" type="Navigation"
-										selected="false" visible="true"/>
-									<StandardListItem icon="sap-icon://employee-lookup" title="lid" description="" info="" infoState="Error" type="Navigation" selected="false"
-										visible="true"/>
+									<!--<StandardListItem icon="sap-icon://employee-lookup" title="lid" description="" info="" infoState="Success" type="Navigation"-->
+									<!--	selected="false" visible="true"/>-->
+									<!--<StandardListItem icon="sap-icon://employee-lookup" title="lid" description="" info="" infoState="Error" type="Navigation" selected="false"-->
+									<!--	visible="true"/>-->
 								</items>
 							</List>
+							
+							
+							
+							
 						</content>
 					</IconTabFilter>
 					<IconTabSeparator icon="" iconDensityAware="false"/>
