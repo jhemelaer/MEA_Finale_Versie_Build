@@ -105,7 +105,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				projectformManager.setEnabled(true);
 			},
 			
-			
 			setProjectUnEdetable : function () {
 				
 				var projectformid = this.getView().byId("projectformid");
