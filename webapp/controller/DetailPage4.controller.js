@@ -14,14 +14,23 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 						
 								
 		 					}; 
-		 		 OModelNewProjectCreate.projectNewformid  = this.getView().byId("projectNewformid").getValue();
+		 					
+		 					var oModel = this.getOwnerComponent().getModel();
+			console.log(oModel.aBindings.length);
+			
+			OModelNewProjectCreate.projectNewformid  = oModel.aBindings.length;
+		 //		 OModelNewProjectCreate.projectNewformid  = this.getView().byId("projectNewformid").getValue();
 		 		 OModelNewProjectCreate.projectNewformtitel = this.getView().byId("projectNewformtitel").getValue();
 					 OModelNewProjectCreate.projectNewformomschrijving = this.getView().byId("projectNewformomschrijving").getValue();
 		 		 OModelNewProjectCreate.projectNewformbeginDatum = this.getView().byId("projectNewformbeginDatum").getValue();
 		 		 OModelNewProjectCreate.projectNewformeindDatum = this.getView().byId("projectNewformeindDatum").getValue();
-		 		 OModelNewProjectCreate.projectNewformActive = this.getView().byId("projectNewformActive").getState();
+	//	 		 OModelNewProjectCreate.projectNewformActive = this.getView().byId("projectNewformActive").getState();
 	//	 		 OModelNewProjectCreate.projectNewformedmanager = this.getView().byId("projectNewformedmanager").getSelectedKey();
-				
+				if(this.getView().byId("projectNewformActive").getState() == true) {
+								OModelNewProjectCreate.projectNewformActive  = 1;
+							} else {
+								OModelNewProjectCreate.projectNewformActive  = 0;	
+							}			
 				
 				
 		 		console.log(OModelNewProjectCreate);

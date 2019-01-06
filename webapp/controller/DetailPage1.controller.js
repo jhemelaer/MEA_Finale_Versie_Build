@@ -24,7 +24,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 				
 				
 				
-                formId.setValue(aaaaaaa.Idproject);
+                formId.setValue(aaaaaaa.Id);
                 formTitel.setValue(aaaaaaa.Titel);
                 formOmschrijving.setValue(aaaaaaa.Omschrijving);
                 formbeginDatum.setValue(aaaaaaa.Begindatum);
