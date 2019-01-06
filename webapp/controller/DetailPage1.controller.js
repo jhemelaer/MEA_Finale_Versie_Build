@@ -3,14 +3,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 	"./Dialog2", "./Dialog3", "./Dialog1",
 	"./utilities",
 	"sap/ui/core/routing/History",
-   "sap/ui/model/json/JSONModel"
-], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History,JSONModel) {
+   "sap/ui/model/json/JSONModel",
+  "./Formatter"
+   
+   
+], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History,JSONModel,Formatter) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage1", {
-		
-		
-		
+	
+		formatter: Formatter,
 		
 		setValues : function (aaaaaaa) {
 			
@@ -267,6 +269,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 
 		},
 		_onStandardListItemPress: function (oEvent) {
+			console.log(oEvent);
 
 			var oBindingContext = oEvent.getParameter("listItem").getBindingContext();
 
