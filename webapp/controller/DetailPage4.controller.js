@@ -16,7 +16,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 		 					}; 
 		 					
 		 					var oModel = this.getOwnerComponent().getModel();
-			console.log(oModel.aBindings.length);
+		
 			
 			OModelNewProjectCreate.projectNewformid  = oModel.aBindings.length;
 		 //		 OModelNewProjectCreate.projectNewformid  = this.getView().byId("projectNewformid").getValue();
@@ -31,6 +31,19 @@ sap.ui.define(["sap/ui/core/mvc/Controller",
 							} else {
 								OModelNewProjectCreate.projectNewformActive  = 0;	
 							}			
+				
+				
+				var varx = sap.ui.getCore().getModel('ModelTest');//
+				console.log(varx);
+				
+            //         oUserCreateDialog.close();
+            //         sap.ui.getCore('data').getModel().refresh();
+            //     },function(){
+            //         oUserCreateDialog.close();
+            //         alert("Create failed");
+            //     }
+            // );
+				
 				
 				
 		 		console.log(OModelNewProjectCreate);
