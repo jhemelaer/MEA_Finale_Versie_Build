@@ -1,18 +1,201 @@
-sap.ui.define(["sap/ui/core/mvc/Controller",
+sap.ui.define([
+	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageBox",
 	"./Dialog2", "./Dialog3", "./Dialog1",
 	"./utilities",
 	"sap/ui/core/routing/History",
-   "sap/ui/model/json/JSONModel",
-  "./Formatter"
-   
-   
-], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History,JSONModel,Formatter) {
+	"sap/ui/model/json/JSONModel",
+	"./Formatter",
+	"jquery.sap.global",
+	"./DemoPersoService",
+	"sap/ui/core/util/Export",
+	"sap/ui/core/util/ExportTypeCSV",
+	"sap/ui/export/Spreadsheet"
+], function (BaseController, MessageBox, Dialog2, Dialog3, Dialog1, Utilities, History,JSONModel,Formatter,jQuery,DemoPersoService,Export,ExportTypeCSV,Spreadsheet) {
 	"use strict";
 
 	return BaseController.extend("com.sap.build.standard.mRv4.controller.DetailPage1", {
 	
+	
+	
 		formatter: Formatter,
+		
+		
+		
+		
+		onDataExport: sap.m.Table.prototype.exportData || function() {
+
+			var oModel = this.getOwnerComponent().getModel("StandardModel");
+		//	var oData = oModel.
+			console.log(oModel);
+			var oExport = new Export({
+
+				exportType: new ExportTypeCSV({
+					fileExtension: "csv",
+					separatorChar: ";"
+				}),
+
+				models: oModel,
+
+				rows: {
+					path: "/TASKSet"
+				},
+				columns: [{
+					name: "id",
+					template: {
+						content: "{Id}"
+					}
+				}, {
+					name: "naam",
+					template: {
+						content: "{Description}"
+					}
+				}, {
+					name: "einddatum",
+					template: {
+						content: "{Description}"
+					}
+				}, {
+					name: "verantwoordelijke",
+					template: {
+						content: "{Idlid}"
+					}
+				}, {
+					name: "status",
+					template: {
+						content: "{Statusid}"
+					}
+				}]
+			});
+			
+			console.log(oExport);
+			this.onExcel(oExport);
+		},
+		
+		onExcel: sap.m.Table.prototype.exportData || function(oExport){
+         //   var vText = this.getResourceBundle().getText("errorPressExcel");
+            // download exported file
+            oExport.saveFile().catch(function(oError) {
+            	console.log(oError);
+            }).then(function() {
+                oExport.destroy();
+            });
+        },
+		
+	// onDataExport : function (aaaaaaa) {	
+	// 				  var aColumns = [];
+	// 		  aColumns.push({
+	// 		    label: "Name",
+	// 		    property: "name"
+	// 		  });
+	// 		  aColumns.push({
+	// 		    label: "Salary",
+	// 		    property: "salary",
+	// 		    type: "number",
+	// 		    scale: 2
+	// 		  });
+
+	// var mSettings = {
+	// 	    workbook: {
+	// 	      columns: aColumns
+	// 	      context = {
+	// 	        application: 'Debug Test Application',
+	// 	        version: '1.54',
+	// 	        title: 'Some random title',
+	// 	        modifiedBy: 'John Doe',
+	// 	        metaSheetName: 'Custom metadata',
+	// 	        metainfo: [
+	// 	          {
+	// 	            name: 'Grouped Properties',
+	// 	            items: [
+	// 	              { key: 'administrator', value: 'Foo Bar' },
+	// 	              { key: 'user', value: 'John Doe' },
+	// 	              { key: 'server', value: 'server.domain.local' }
+	// 	            ]
+	// 	          },
+	// 	          {
+	// 	            name: 'Another Group',
+	// 	            items: [
+	// 	              { key: 'property', value: 'value' },
+	// 	              { key: 'some', value: 'text' },
+	// 	              { key: 'fu', value: 'bar' }
+	// 	            ]
+	// 	          }
+	// 	        ]
+	// 	      },
+	// 	      hierarchyLevel: 'level'
+	// 	    },
+	// 	    dataSource: mDataSource,
+	// 	    fileName: "salary.xlsx"
+	// 	  };
+	//   var oSpreadsheet = new sap.ui.export.Spreadsheet(mSettings);
+	//   oSpreadsheet.build();
+	
+	// },	
+		
+		// 	onDataExport : sap.m.Table.prototype.exportData || function () {
+				
+				
+				
+		// 	var oComponent = this.getOwnerComponent();
+		// 	oComponent.getModel("StandardModel");
+			
+		// 	console.log(oComponent.getModel("StandardModel"));
+				
+		// 		console.log("export");
+				
+		// 	var oExport = new Export({
+
+		// 		// Type that will be used to generate the content. Own ExportType's can be created to support other formats
+		// 		exportType : new ExportTypeCSV({
+		// 			separatorChar : ";"
+		// 		}),
+
+		// 		// Pass in the model created above
+		// 		models : this.getView().getModel(),
+
+		// 		// binding information for the rows aggregation
+		// 		rows : {
+		// 			path : "{StandardModel>/TASKSet}"
+		// 		},
+
+		// 		// column definitions with column name and binding info for the content
+
+		// 		columns : [{
+		// 			name : "id",
+		// 			template : {
+		// 				content : "{StandardModel>Id}"
+		// 			}
+		// 		}, {
+		// 			name : "naam",
+		// 			template : {
+		// 				content : "{StandardModel>Description}"
+		// 			}
+		// 		}, {
+		// 			name : "einddatum",
+		// 			template : {
+		// 				content : "{StandardModel>Description}"
+		// 			}
+		// 		},{
+		// 			name : "verantwoordelijke",
+		// 			template : {
+		// 				content : "{StandardModel>Idlid}"
+		// 			}
+		// 		}, {
+		// 			name : "status",
+		// 			template : {
+		// 				content : "StandardModel>Statusid"
+		// 			}
+		// 		}]
+		// 	});
+
+		// 	// download exported file
+		// 	oExport.saveFile().catch(function(oError) {
+		// 		MessageBox.error("Error when downloading data. Browser might not be supported!\n\n" + oError);
+		// 	}).then(function() {
+		// 		oExport.destroy();
+		// 	});
+		// },
 		
 		setValues : function (aaaaaaa) {
 			

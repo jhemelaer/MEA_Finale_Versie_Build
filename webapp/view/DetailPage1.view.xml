@@ -242,6 +242,8 @@
 								</items>
 							</Table>
 							
+								<Button text="data" press="onDataExport"></Button>
+							
 							
 							
 						</content>
