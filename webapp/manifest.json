@@ -86,6 +86,10 @@
 			"dataSource": "Flexso"
 		},
 		
+		"LedenModel" : {
+			"dataSource": "Flexso_leden"
+		},
+		
 		"NewModel" : {
 			"type": "sap.ui.model.odata.v2.ODataModel",
 			"settings": {

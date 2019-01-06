@@ -154,7 +154,7 @@
 							<ObjectHeader intro="" title="{i18n>takenTitle}" number="" numberUnit="USD" numberState="None" titleActive="false" backgroundDesign="Translucent"
 								condensed="false" visible="true">
 								<attributes>
-									<ObjectAttribute text="{i18n>nieuwlidToevoegen}" active="true" visible="true" press="_onObjectAttributePress2"/>
+									<ObjectAttribute text="{i18n>taakToevoegen}" active="true" visible="true" press="_onObjectAttributePress2"/>
 								</attributes>
 								<statuses/>
 								<markers/>

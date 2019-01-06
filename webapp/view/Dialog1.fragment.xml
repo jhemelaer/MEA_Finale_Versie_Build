@@ -14,11 +14,10 @@
 						<content>
 							
 							
-							<MultiComboBox id="listAlleLeden" editable="true" enabled="true" width="auto" valueState="None" maxWidth="100%">
+							<MultiComboBox id="listAlleLeden" editable="true" enabled="true" width="auto" valueState="None" maxWidth="100%" items="{LedenModel>/PersonenSet}">
 								<items>
-									<core:Item text="Item" enabled="true" key="Item"/>
-									<core:Item text="Item" enabled="true" key="Item"/>
-									<core:Item text="Item" enabled="true" key="Item"/>
+									<core:Item text="{LedenModel>Voornaam} {LedenModel>Achternaam}" enabled="true" key="{LedenModel>Idpersoon}"/>
+								
 								</items>
 							</MultiComboBox>
 							
