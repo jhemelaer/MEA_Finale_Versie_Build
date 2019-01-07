@@ -82,7 +82,7 @@
 				"uri": "i18n/i18n.properties"
 			},
 			
-		"" : {
+		"StandardModel" : {
 			"dataSource": "Flexso"
 		},
 		
@@ -97,6 +97,10 @@
 				},
 			"dataSource": "Flexso_leden",
 			"preload": true
+		},
+		
+		"" : {
+				"dataSource": "Flexso"
 		}
 		
 		},
