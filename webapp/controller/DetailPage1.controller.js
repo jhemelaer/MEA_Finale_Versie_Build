@@ -342,6 +342,36 @@ sap.ui.define([
 			edit.setVisible(true);
 			cancel.setVisible(false);
 			
+			var formulier = this.getView.byId("FormDetailProject");
+			var content = formulier.getContent(); //content bevat de ingevoerde gegevens
+			
+			var oEntry = {};
+			oEntry.Id = "3";
+			oEntry.Titel = "Cockpit in orde maken";
+			oEntry.Omschrijving = "Zorgen dat de cockpit in orde is";
+			oEntry.Idmanager = "1";
+			oEntry.Begindatum = "2018-12-11T00:00:00";
+			oEntry.Einddatum = "2019-01-23T00:00:00";
+			oEntry.Active = "1";
+			
+			sap.ui.getCore().getModel().create('/PROJECTSet', oEntry, null, function(oResponse){
+				alert("Create successful");
+				console.log(oResponse);
+			},function(){
+				alert("Create failed");
+			});
+			
+			/*
+			
+			oEntry.Empid = "ABC123";
+
+                     oEntry.Firstname = "Chandra";
+
+                     oEntry.Lastname = "Mahajan";
+			
+			*/
+			
+		/*	
 			// TO DO 
 			//	
 			//	1) nieuw model halen
@@ -350,6 +380,8 @@ sap.ui.define([
 				console.log(NewModel);
 			//  2) niewe waarden opslaan db odata
 				// TO DO
+				
+				*/
 				
 		},
 		

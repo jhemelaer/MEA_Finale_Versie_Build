@@ -74,11 +74,9 @@
 													<Label text="manager" design="Standard" width="100%" required="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
 												</form:label>
 												<form:fields>
-													<ComboBox id="projectformManager" editable="true" visible="true" width="auto" valueState="None" maxWidth="100%" enabled="false">
+													<ComboBox id="projectformManager" editable="true" visible="true" width="auto" valueState="None" maxWidth="100%" enabled="false" selectedKey="{/ProjectLID/Idpersoon}" items="{/ProjectLID}">
 														<items>
-															<core:Item text="Item" enabled="true" key="Item"/>
-															<core:Item text="Item" enabled="true" key="Item"/>
-															<core:Item text="Item" enabled="true" key="Item"/>
+															<core:Item key="{Idpersoon}" text="{Email}"/>
 														</items>
 													</ComboBox>
 												</form:fields>
