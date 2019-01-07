@@ -154,13 +154,15 @@
 							<ObjectHeader intro="" title="{i18n>takenTitle}" number="" numberUnit="USD" numberState="None" titleActive="false" backgroundDesign="Translucent"
 								condensed="false" visible="true">
 								<attributes>
-									<ObjectAttribute text="{i18n>nieuwlidToevoegen}" active="true" visible="true" press="_onObjectAttributePress2"/>
+									<ObjectAttribute text="{i18n>taakToevoegen}" active="true" visible="true" press="_onObjectAttributePress2"/>
 								</attributes>
 								<statuses/>
 								<markers/>
 							</ObjectHeader>
+							
+							
 							<Table width="auto" noDataText="No data" mode="None" showSeparators="All" growing="true" growingThreshold="20" growingScrollToLoad="true"
-								class="sapUiResponsiveMargin" itemPress="_onTableItemPress">
+								class="sapUiResponsiveMargin" itemPress="_onTableItemPress" items="{StandardModel>/TASKSet}">
 								<infoToolbar>
 									<Toolbar width="100%" height="auto" design="Auto" visible="false" enabled="true">
 										<content>
@@ -171,7 +173,7 @@
 								<headerToolbar>
 									<OverflowToolbar width="auto" height="auto" design="Transparent" visible="true" enabled="true">
 										<content>
-											<Title text="Taken(3)" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
+											<Title text="Taken" titleStyle="Auto" width="auto" textAlign="Begin" visible="true" wrapping="false"/>
 											<ToolbarSpacer width=""/>
 											<OverflowToolbarButton text="Sort" type="Transparent" icon="sap-icon://sort" iconFirst="true" width="auto" enabled="true" visible="true"
 												iconDensityAware="false"/>
@@ -219,33 +221,31 @@
 								<items>
 									<ColumnListItem type="Active">
 										<cells>
-											<Text text="1" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="tabellen maken" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="01/01/2019" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="michiel" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="open" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</cells>
-									</ColumnListItem>
-									<ColumnListItem type="Active">
-										<cells>
-											<Text text="2" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="data exporteren" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="01/01/2019" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="michiel" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="open" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-										</cells>
-									</ColumnListItem>
-									<ColumnListItem type="Active">
-										<cells>
-											<Text text="3" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="i18n aanmaken" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="01/01/2019" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="jordi" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
-											<Text text="open" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{StandardModel>Id}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{StandardModel>Description}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{StandardModel>Description}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+											<Text text="{StandardModel>Idlid}" width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>
+										
+										<ObjectStatus text="{
+													path: 'StandardModel>Statusid',
+													formatter: '.formatter.statusText'
+												}"/>
+											<!--<Text text="{-->
+											<!--		path: 'StandardModel>Statusid',-->
+											<!--		formatter: '.formatter.statusText'-->
+											<!--		}" -->
+											
+											<!--width="auto" maxLines="1" wrapping="false" textAlign="Begin" textDirection="Inherit" visible="true"/>-->
+										
 										</cells>
 									</ColumnListItem>
 								</items>
 							</Table>
+							
+								<Button text="data" press="onDataExport"></Button>
+							
+							
+							
 						</content>
 					</IconTabFilter>
 					<IconTabSeparator icon="" iconDensityAware="false"/>
